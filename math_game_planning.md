@@ -16,41 +16,41 @@
 
 
 # Nouns (Classes)
-  ## - Player
-  ## - Game
-  ## - Questions / Problems
+  ### - Player
+  ### - Game
+  ### - Questions / Problems
 
 
 # Class Roles
-  ## Player
+  ### Player
     - State: Lives
     - Behaviour: Remove lives
     - The player class will track the players lives and have methods to remove a life
 
-  ## Game
+  ### Game
     - State: Scores
     - Behaviour: Keep track of score
     - The game class will track the scores for each player and be able to add to and display the score
   
-  ## Questions
+  ### Questions
     - State: Answer
     - Behaviour: Generates Questions
     - The question class generate math questions and keep track of the correct answer
 
 # Class Methods
-  ## Player Methods
+  ### Player Methods
     - init: lives
     - remove_life
     - lose_game?
 
-   ## Game Methods
+   ### Game Methods
     -  init: score, players
     -  game_over?
     -  whose_turn
     -  who_won
     -  current_player
   
-   ## Questions Methods
+   ### Questions Methods
     -  init: questions
     -  generate_questions
     -  compare_answer
