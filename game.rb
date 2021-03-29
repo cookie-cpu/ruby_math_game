@@ -8,5 +8,10 @@ class Game
   end
 
   def start
-    
+    while @game_over == false
   end
+
+  def question
+    question = Question.new
+    @question = question.question
+    @answer = question.answer

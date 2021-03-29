@@ -1,6 +1,7 @@
 class Player
 
   attr_accessor :lives
+  attr_accessor :name
   # attr_accessor :score
 
   def initialize(name)
@@ -12,7 +13,7 @@ class Player
     @lives -= 1
   end
 
-  def lose_game
+  def lose_game?
     if @lives <= 0
       puts "You lost!"
     end
