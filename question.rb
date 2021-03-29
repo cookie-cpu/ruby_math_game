@@ -9,13 +9,4 @@ class Question
     @answer = @num1 + @num2
   end
 
-  def is_correct(user_ans)
-    if user_ans == @answer
-      return true
-    else
-      return false
-    end
-  end
-
-
 end

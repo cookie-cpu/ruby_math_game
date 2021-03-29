@@ -13,19 +13,26 @@ class Game
 
   def start
     
-    puts "welcome to the ruby math game!"
+    puts "welcome to the ruby math game! ".upcase    
     until game_over? do
-      puts "--- NEW TURN ---"
+      puts "\n--- NEW TURN ---"
       puts "--- Your Turn #{current_player.name} ---"
       q = Question.new
-        if gets.chomp.to_i != q.answer
+      input = gets.chomp.to_i
+        if input != q.answer
           puts "--- Incorrect! You lose a life! ---"
           current_player.remove_life
+        elsif input == q.answer
+          puts "--- Correct! Nice job! ---"
+          current_player.add_score
         end
         print_score
         swap_turn
       end
       puts "--- GAME OVER ---"
+      puts "--- FINAL SCORE ---"
+      puts "| Player1: #{@players[0].score} |"
+      puts "| Player2: #{@players[1].score} |"
   end
 
   def swap_turn
@@ -34,7 +41,8 @@ class Game
 
   def print_score
     puts "ScoreBoard: "
-    puts " P1: #{@players[0].lives} lives left\n P2: #{@players[1].lives} lives left"
+    puts " Player1: #{@players[0].lives} lives left || Score: #{@players[0].score}\n 
+Player2: #{@players[1].lives} lives left || Score: #{@players[1].score}"
   end
 
   def game_over?
