@@ -49,6 +49,8 @@
     -  whose_turn
     -  who_won
     -  current_player
+    -  current_score
+    -  gets.chomp_to_i
   
    ### Questions Methods
     -  init: questions
