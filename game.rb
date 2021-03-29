@@ -2,14 +2,14 @@ class Game
 
   def initialize
     @players = [
-      Player1.new("Player 1"), 
-      Player2.new("Player 2")]
+      Player.new("Player 1"), 
+      Player.new("Player 2")]
     @game_over = false
-    @current_turn = 0
+    @current_player = 0
   end
 
   def current_player
-    @players[@current_turn]
+    @players[@current_player]
   end
 
   def start
@@ -19,26 +19,32 @@ class Game
       puts "--- NEW TURN ---"
       puts "--- Your Turn #{current_player.name} ---"
       q = Question.new
-      puts q.question
+      # q.prompt
         if gets.chomp.to_i != q.answer
+          puts "Incorrect! You lose a life!"
           current_player.remove_life
         end
-        swap_turn
         print_score
+        swap_turn
       end
 
   end
 
   def swap_turn
-    @current_player = (current_player + 1) % @players.length
+    @current_player = (@current_player + 1) % @players.length
   end
 
   def print_score
-    puts "P1: #{@players[0].lives} lives left, P2: #{@players[1].lives} lives left"
+    puts "ScoreBoard: "
+    puts " P1: #{@players[0].lives} lives left\n P2: #{@players[1].lives} lives left"
   end
+
+
+
 
   # def question
   #   question = Question.new
   #   @question = question.question
   #   @answer = question.answer
   # end
+end

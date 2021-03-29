@@ -7,7 +7,7 @@ class Question
     @num2 = rand(1..12)
     #@operand = ['+', '-', '/', '*'].sample
     #puts = "What is #{@n1} #{@operand} #{@n2}"
-    @question = "What is #{@num1} + #{@num2}"
+    puts "What is #{@num1} + #{@num2}"
     @answer = @num1 + @num2
   end
 
