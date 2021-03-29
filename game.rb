@@ -4,7 +4,6 @@ class Game
     @players = [
       Player.new("Player 1"), 
       Player.new("Player 2")]
-    @game_over = false
     @current_player = 0
   end
 
@@ -13,21 +12,20 @@ class Game
   end
 
   def start
-    # while @game_over == false
+    
     puts "welcome to the ruby math game!"
-    until @game_over do
+    until game_over? do
       puts "--- NEW TURN ---"
       puts "--- Your Turn #{current_player.name} ---"
       q = Question.new
-      # q.prompt
         if gets.chomp.to_i != q.answer
-          puts "Incorrect! You lose a life!"
+          puts "--- Incorrect! You lose a life! ---"
           current_player.remove_life
         end
         print_score
         swap_turn
       end
-
+      puts "--- GAME OVER ---"
   end
 
   def swap_turn
@@ -39,12 +37,8 @@ class Game
     puts " P1: #{@players[0].lives} lives left\n P2: #{@players[1].lives} lives left"
   end
 
+  def game_over?
+    @players.any? { |player| player.lives <= 0}
+  end
 
-
-
-  # def question
-  #   question = Question.new
-  #   @question = question.question
-  #   @answer = question.answer
-  # end
 end
